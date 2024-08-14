@@ -6,9 +6,10 @@ module.exports = {
     try {
       const { data } = await axios.get(url);
       const $ = cheerio.load(data);
-      
-      const title = .text();
-      const content = .text();
+
+      // Example selectors - adjust these as needed based on the structure of the webpage
+      const title = $('title').text(); // Assuming the title is in the <title> tag
+      const content = $('article').text(); // Assuming the content is within an <article> tag
 
       return { title, content };
     } catch (error) {
