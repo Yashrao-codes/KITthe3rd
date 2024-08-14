@@ -18,7 +18,8 @@ article-saver-pwa/
 │   ├── css/                  # Folder for CSS files
 │   ├── js/                   # Folder for JavaScript files
 │   ├── manifest.json         # PWA manifest file
-│   ├── service-worker.js     # Service worker for caching
+│   ├── service-worker.js     # Service worker for cachinggit push origin feature/tweet-nuggets
+
 │   └── index.html            # Main HTML file
 ├── src/
 │   ├── controllers/          # Server-side controllers
