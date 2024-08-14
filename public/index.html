@@ -15,10 +15,6 @@
 
 <div id="article-list"></div>
 
-<h2>Recommended Articles</h2>
-<button onclick="fetchRecommendations()">Get Recommendations</button>
-<div id="recommendations-list"></div>
-
 <script>
   document.getElementById('article-form').addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -58,24 +54,6 @@
       });
     } catch (error) {
       console.error('Error fetching articles:', error);
-    }
-  }
-
-  async function fetchRecommendations() {
-    try {
-      const response = await fetch('/articles/recommend?limit=5');
-      const data = await response.json();
-
-      const recommendationsList = document.getElementById('recommendations-list');
-      recommendationsList.innerHTML = '';
-
-      data.recommendedArticles.forEach(article => {
-        const div = document.createElement('div');
-        div.textContent = `${article.title}: ${article.content.substring(0, 100)}...`;
-        recommendationsList.appendChild(div);
-      });
-    } catch (error) {
-      console.error('Error fetching recommendations:', error);
     }
   }
 
