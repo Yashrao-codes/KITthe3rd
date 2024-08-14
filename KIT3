@@ -1,4 +1,4 @@
-git clone https://github.com/your-username/article-saver-pwa.git
+# git clone https://github.com/your-username/article-saver-pwa.git
 cd article-saver-pwa
 
 # Create and switch to a 'dev' branch
