@@ -7,57 +7,79 @@
 </head>
 <body>
 
-<h1>Save Articles</h1>
-<form id="article-form">
-  <input type="url" id="article-url" placeholder="Enter article URL" required />
-  <button type="submit">Save Article</button>
+<h1>Save Highlights</h1>
+<form id="highlight-form">
+  <textarea id="highlight-text" placeholder="Enter highlight text" required></textarea>
+  <button type="submit">Save Highlight</button>
 </form>
 
-<div id="article-list"></div>
+<div id="highlight-list"></div>
+
+<h2>Tweet-Sized Nuggets</h2>
+<button onclick="fetchNuggets()">Get Nuggets</button>
+<div id="nuggets-list"></div>
 
 <script>
-  document.getElementById('article-form').addEventListener('submit', async (event) => {
+  document.getElementById('highlight-form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const url = document.getElementById('article-url').value;
+    const text = document.getElementById('highlight-text').value;
     
     try {
-      const response = await fetch('/articles/save', {
+      const response = await fetch('/highlights/save', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ url }),
+        body: JSON.stringify({ text }),
       });
 
       const data = await response.json();
       alert(data.message);
-      document.getElementById('article-url').value = ''; // Clear the input field
-      fetchArticles(); // Refresh the list of articles
+      document.getElementById('highlight-text').value = ''; // Clear the input field
+      fetchHighlights(); // Refresh the list of highlights
     } catch (error) {
-      console.error('Error saving article:', error);
+      console.error('Error saving highlight:', error);
     }
   });
 
-  async function fetchArticles() {
+  async function fetchHighlights() {
     try {
-      const response = await fetch('/articles/all');
+      const response = await fetch('/highlights/nuggets');
       const data = await response.json();
 
-      const articleList = document.getElementById('article-list');
-      articleList.innerHTML = '';
+      const highlightList = document.getElementById('highlight-list');
+      highlightList.innerHTML = '';
 
-      data.articles.forEach(article => {
+      data.highlights.forEach(highlight => {
         const div = document.createElement('div');
-        div.textContent = `${article.title}: ${article.content.substring(0, 100)}...`;
-        articleList.appendChild(div);
+        div.textContent = highlight;
+        highlightList.appendChild(div);
       });
     } catch (error) {
-      console.error('Error fetching articles:', error);
+      console.error('Error fetching highlights:', error);
     }
   }
 
-  fetchArticles(); // Load articles on page load
+  async function fetchNuggets() {
+    try {
+      const response = await fetch('/highlights/nuggets');
+      const data = await response.json();
+
+      const nuggetsList = document.getElementById('nuggets-list');
+      nuggetsList.innerHTML = '';
+
+      data.nuggets.forEach(nugget => {
+        const div = document.createElement('div');
+        div.textContent = nugget;
+        nuggetsList.appendChild(div);
+      });
+    } catch (error) {
+      console.error('Error fetching nuggets:', error);
+    }
+  }
+
+  fetchHighlights(); // Load highlights on page load
 </script>
 
 </body>

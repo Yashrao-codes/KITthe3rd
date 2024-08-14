@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 
 app.use('/auth', require('./src/routes/auth'));
 app.use('/articles', require('./src/routes/articles'));
+app.use('/highlights', require('./src/routes/highlights'));
 
 app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000');
