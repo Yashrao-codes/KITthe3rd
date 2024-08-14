@@ -1,15 +1,17 @@
 import React from 'react';
-import { Typography, Container } from '@material-ui/core';
+import { Typography, Container, Box } from '@mui/material';
 
 const Recommendations = () => {
   return (
     <Container maxWidth="md">
-      <Typography variant="h4" component="h1" gutterBottom>
-        Recommendations
-      </Typography>
-      <Typography variant="body1">
-        AI-powered recommendations will appear here once implemented.
-      </Typography>
+      <Box sx={{ mt: 4 }}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Recommendations
+        </Typography>
+        <Typography variant="body1">
+          AI-powered recommendations will appear here once implemented.
+        </Typography>
+      </Box>
     </Container>
   );
 };
