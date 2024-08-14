@@ -1,0 +1,32 @@
+git clone https://github.com/your-username/article-saver-pwa.git
+cd article-saver-pwa
+
+# Create and switch to a 'dev' branch
+git checkout -b dev
+
+# Create additional branches as needed
+git checkout -b feature/authentication
+git checkout -b feature/ai-labeling
+git checkout -b feature/crawling
+
+# Switch back to the main branch
+git checkout main
+
+article-saver-pwa/
+├── public/
+│   ├── images/               # Folder for images and icons
+│   ├── css/                  # Folder for CSS files
+│   ├── js/                   # Folder for JavaScript files
+│   ├── manifest.json         # PWA manifest file
+│   ├── service-worker.js     # Service worker for caching
+│   └── index.html            # Main HTML file
+├── src/
+│   ├── controllers/          # Server-side controllers
+│   ├── models/               # Models for handling data
+│   ├── routes/               # API routes
+│   ├── services/             # Services for business logic
+│   └── utils/                # Utility functions
+├── .gitignore                # Files and directories to ignore in Git
+├── server.js                 # Entry point for the Node.js server
+├── package.json              # Node.js dependencies and scripts
+└── README.md                 # Documentation for the project
