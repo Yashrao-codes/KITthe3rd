@@ -10,7 +10,7 @@ const SavedArticles = () => {
 
   const fetchArticles = async () => {
     try {
-      const response = await fetch('http://localhost:5000/articles');
+      const response = await fetch('https://fe79aa71-4539-4561-9710-ec20727e5f09-00-33krufq9lvytv.sisko.replit.dev/articles');
       if (response.ok) {
         const data = await response.json();
         setArticles(data);

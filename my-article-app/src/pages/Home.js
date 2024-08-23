@@ -17,7 +17,7 @@ const Home = () => {
       return;
     }
     try {
-      const response = await fetch('http://localhost:5000/articles/add', {
+      const response = await fetch('https://fe79aa71-4539-4561-9710-ec20727e5f09-00-33krufq9lvytv.sisko.replit.dev/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

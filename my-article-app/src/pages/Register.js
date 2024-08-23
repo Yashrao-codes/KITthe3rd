@@ -12,7 +12,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/register', {
+      const response = await fetch('https://fe79aa71-4539-4561-9710-ec20727e5f09-00-33krufq9lvytv.sisko.replit.dev/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password, deviceId: navigator.userAgent }),
@@ -22,7 +22,7 @@ const Register = () => {
         login(data.token);
         navigate('/');
       } else {
-        alert(data.error);
+        alert(data.error || 'Registration failed');
       }
     } catch (error) {
       console.error('Error:', error);
